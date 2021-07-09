@@ -10,4 +10,4 @@
 
 ## if i check back my website again on heroku or re deploy it making no changes the website starts working fine. 
 
-# Enojy downloading Videos and Songs From Youtube for free
+# Enjoy downloading Videos and Songs From Youtube for free
