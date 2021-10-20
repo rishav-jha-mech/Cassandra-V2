@@ -429,8 +429,19 @@
   }
 }
 @media(max-width:710px){
-  #case{
+  .case{
     display: block !important;
+    overflow-y: visible !important;
+  }
+  .fa-ellipsis-v{
+    position: relative;
+    z-index: 100;
+    margin-bottom: -10px;
+  }
+}
+@media(max-width:710px){
+  .fa-ellipsis-v{
+    margin-bottom: 0px;
   }
 }
 </style>
@@ -471,11 +482,11 @@
 <div id="desc" class="body1 py-5" data-aos="zoom-in">
   <h1 style="text-align: center;" class="mb-5" >How To Download Youtube <span class="block">  Video / Audio &nbsp;?</span> </h1>
   <p class="steps"  >1. paste the uRL in the input box.</p>
-  <p class="steps" id="case" >2. make sure the url is in the format of &nbsp;<a class="block" style="text-decoration: none;font-size: 14px;text-transform: none;" href="#"> https://www.youtube.com/watch?v=zRHNi3QfFlE </a></p>
+  <p class="steps case"  >2. make sure the url is in the format of &nbsp;<a class="block" style="text-decoration: none;font-size: 14px;text-transform: none;" href="#"> https://www.youtube.com/watch?v=zRHNi3QfFlE </a></p>
   <p class="steps"  >3. click on download button.</p>
   <p class="steps"  >4. go to video / audio section to choose your file.</p>
   <p class="steps"  >5. click on download button a new tab will open up.</p>
-  <p class="steps"  >6. now on that video or audio click on this.<i style="font-size: 15px; background-color: rgb(216, 216, 216);padding: 8px;border: 2px solid black;color: black;" class="fas fa-ellipsis-v mx-2"></i> button</p>
+  <p class="steps case"  >6. now on that video or audio click on this.<i style="font-size: 15px; background-color: rgb(216, 216, 216);padding: 8px;border: 2px solid black;color: black;" class="fas fa-ellipsis-v mx-2"></i> button</p>
   <p class="steps"  >7. now select the download option</p>
 </div>
 {% endif %}
