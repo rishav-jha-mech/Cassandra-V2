@@ -11,20 +11,25 @@ def yt(request):
         
         # getting link from frontend
         link = request.POST['link']
-        video = YouTube(link)
-        embedLink = link.replace("watch?v=", "embed/")
-        #print(video.streams.all)
-        a=video.streams.filter(progressive=False, only_video=True)
-        b=video.streams.filter(only_audio=True)
-        c=video.streams.filter(progressive=True)
-        messages.add_message(request, messages.INFO, 'Hello world.')
-        context={
-            'yobj' : video,
-            'embedLink' : embedLink,
-            'onlyVideo' :      a,
-            'onlyAudio':       b,
-            'bothVideoAudio' : c,
-        }
+        try:
+            video = YouTube(link)
+            embedLink = link.replace("watch?v=", "embed/")
+            #print(video.streams.all)
+            a=video.streams.filter(progressive=False, only_video=True)
+            b=video.streams.filter(only_audio=True)
+            c=video.streams.filter(progressive=True)
+            messages.add_message(request, messages.INFO, 'Hello world.')
+            context={
+                'yobj' : video,
+                'embedLink' : embedLink,
+                'onlyVideo' :      a,
+                'onlyAudio':       b,
+                'bothVideoAudio' : c,
+            }
+        except:
+            context={
+                'message': "Wrong URL Entered"
+            }
         return render(request, 'index.html', context)
     return render(request, 'index.html')
 
