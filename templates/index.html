@@ -522,8 +522,8 @@
   </thead>
   
   {% for i in bothVideoAudio %}
-  <tbody id="tbody1" data-aos="fade-right">
-    <tr>
+  <tbody id="tbody1">
+    <tr data-aos="fade-{% if forloop.counter|divisibleby:2 %}right{% else %}left{% endif %}">
       <th scope="row"> {{i.resolution}}  </th>
       <td>{{i.mime_type}}</td>
       <td class="hide">{{i.fps}}</td>
@@ -542,9 +542,9 @@
       <th scope="col">Download</th>
     </tr>
   </thead>
-  <tbody id="tbody2" data-aos="fade-left">
+  <tbody id="tbody2">
     {% for i in onlyAudio %}
-    <tr>
+    <tr data-aos="fade-{% if forloop.counter|divisibleby:2 %}right{% else %}left{% endif %}">
       <th scope="row"> {{i.mime_type}}  </th>
       <td>{{i.abr}}</td>
       <td>{{i.filesize}} Bytes</td>
@@ -565,8 +565,8 @@
     </tr>
   </thead>
   {% for i in onlyVideo %}
-  <tbody id="tbody3" data-aos="fade-right">
-    <tr>
+  <tbody id="tbody3">
+    <tr data-aos="fade-{% if forloop.counter|divisibleby:2 %}right{% else %}left{% endif %}">
       <th scope="row"> {{i.resolution}}  </th>
       <td>{{i.mime_type}}</td>
       <td class="hide">{{i.fps}}</td>
