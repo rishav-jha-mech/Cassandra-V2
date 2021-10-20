@@ -26,12 +26,11 @@ def yt(request):
                 'onlyAudio':       b,
                 'bothVideoAudio' : c,
             }
-            return render(request, 'index.html', context)
         except:
             context={
                 'message': "Wrong URL Entered"
             }
-            return redirect(request, 'index.html', context)
+        return render(request, 'index.html', context)
     return render(request, 'index.html')
 
 def handler404(request, exception):
