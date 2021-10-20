@@ -171,6 +171,9 @@
         text-align: center;
         font-weight: 400;
         font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .left img{
         height: 350px; 
@@ -243,7 +246,7 @@
       color: white;
     }
     .main{
-      background: url(https://thumbs.gfycat.com/WatchfulUnequaledElk-size_restricted.gif);
+      background: url(https://64.media.tumblr.com/bff245925ee537755c3c3b1f9a3f2a7f/tumblr_oq9smvbNLz1vsjcxvo1_540.gifv);
       background-attachment: fixed;
       background-position: center;
       background-blend-mode: color;
@@ -390,8 +393,8 @@
 }
 #absBut{
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 16px;
+  right: 25px;
   z-index: 99;
   font-size: 18px;
   border: none;
@@ -425,6 +428,11 @@
     color: aqua;
   }
 }
+@media(max-width:710px){
+  #case{
+    display: block !important;
+  }
+}
 </style>
 {% endblock style %}
 
@@ -449,7 +457,7 @@
 <div id="desc" class="body1 py-5" data-aos="zoom-in">
   <h1 style="text-align: center;" class="mb-5" >How To Download Youtube <span class="block">  Video / Audio &nbsp;?</span> </h1>
   <p class="steps"  >1. paste the uRL in the input box.</p>
-  <p class="steps"  >2. make sure the url is in the format of <a class="block" style="text-decoration: none;font-size: 14px;text-transform: none;" href="#"> https://www.youtube.com/watch?v=zRHNi3QfFlE </a></p>
+  <p class="steps" id="case" >2. make sure the url is in the format of &nbsp;<a class="block" style="text-decoration: none;font-size: 14px;text-transform: none;" href="#"> https://www.youtube.com/watch?v=zRHNi3QfFlE </a></p>
   <p class="steps"  >3. click on download button.</p>
   <p class="steps"  >4. go to video / audio section to choose your file.</p>
   <p class="steps"  >5. click on download button a new tab will open up.</p>
@@ -467,7 +475,7 @@
 </div>
 
 <div class="right">
-<h2 style="font-size: 1.7rem;" class="pb-4 px-1" data-aos="fade-up">      {{ yobj.title }}                </h2> 
+<h2 style="font-size: 1.7rem;font-weight: 700;" class="pb-4 px-1" data-aos="fade-up">      {{ yobj.title }}                </h2> 
 <div class="info pt-1 pb-3 mx-4">
 <p class="py-1" data-aos="fade-left">    <span class="label"> Channel Name: </span>   {{ yobj.author }}               </p>
 <p class="py-1" data-aos="fade-left">    <span class="label"> Video Length: </span>   {{ yobj.length }}&nbsp;Seconds               </p>
