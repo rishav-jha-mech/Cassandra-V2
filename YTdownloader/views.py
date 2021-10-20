@@ -26,11 +26,12 @@ def yt(request):
                 'onlyAudio':       b,
                 'bothVideoAudio' : c,
             }
+            return render(request, 'index.html', context)
         except:
             context={
                 'message': "Wrong URL Entered"
             }
-        return render(request, 'index.html', context)
+            return redirect(request, 'index.html', context)
     return render(request, 'index.html')
 
 def handler404(request, exception):
@@ -38,9 +39,4 @@ def handler404(request, exception):
 
 def handler500(request, *args, **argv):
     return render(request, '500.html', status=500)
-
-def admin(request):
-    return redirect('home')
-def accadmin(request):
-    return redirect('home')
 
