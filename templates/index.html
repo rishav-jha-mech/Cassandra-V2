@@ -383,25 +383,64 @@
         border: 2px solid purple;
       }
   }
-
+.heaD{
+  font-size: 2.5rem !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+#absBut{
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.315);
+}
+@media(max-width:500px){
+  #block500{
+    display: block;
+  }
+  #absBut{
+    bottom: 10px;
+    right: 12px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background: #000;
+    color: aqua;
+    box-shadow: 0 0 5px 1px aqua;
+  }
+  #absBut i{
+    color: aqua;
+  }
+}
 </style>
-
 {% endblock style %}
 
 
 {% block body %}
-
 <!--MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN -->
 
 
 <div class="main">
 
-
+{% if not yobj %}
 <div id="body" class="container-fluid" data-aos="right">
 <h1 class="title py-2"> <span class="cass" style="font-family: 'Dancing Script', cursive; color: #ff156f;font-size:3.5rem;">Cassandra</span> <span class="block"> Youtube Downloader </span></h1>
 <p class="py-5" style="font-weight: 500;font-size:1.6rem;letter-spacing:2px;">Download Videos & Music From Youtube For Free</p>
 
-<form action="" method="post">
+<form method="POST">
   {% csrf_token %}
   <input id="link" type="url" name="link" placeholder="Paste Youtube Link Here" required>
   <input id="butt" onclick="hides()" class="btn btn-mydesign mx-2" type="submit" value="Download">
@@ -410,15 +449,18 @@
 <div id="desc" class="body1 py-5" data-aos="zoom-in">
   <h1 style="text-align: center;" class="mb-5" >How To Download Youtube <span class="block">  Video / Audio &nbsp;?</span> </h1>
   <p class="steps"  >1. paste the uRL in the input box.</p>
-  <p class="steps"  >2. make sure the url is in the format of <a class="block" style="text-decoration: none;font-size: 14px;" href="#"> https://www.youtube.com/watch?v=zRHNi3QfFlE </a></p>
+  <p class="steps"  >2. make sure the url is in the format of <a class="block" style="text-decoration: none;font-size: 14px;text-transform: none;" href="#"> https://www.youtube.com/watch?v=zRHNi3QfFlE </a></p>
   <p class="steps"  >3. click on download button.</p>
   <p class="steps"  >4. go to video / audio section to choose your file.</p>
   <p class="steps"  >5. click on download button a new tab will open up.</p>
   <p class="steps"  >6. now on that video or audio click on this.<i style="font-size: 15px; background-color: rgb(216, 216, 216);padding: 8px;border: 2px solid black;color: black;" class="fas fa-ellipsis-v mx-2"></i> button</p>
   <p class="steps"  >7. now select the download option</p>
 </div>
+{% endif %}
 <div class="body2">
 {% if yobj %}
+<a href="/" id="absBut">Download Again &nbsp;<i class="fas fa-arrow-down"></i></a>
+<h1 class="heaD pt-5 pb-3"> RESULTS </h1>
 <div class="papa my-5 py-4">
 <div class="left">
  <img height="350px" width="500px" src="{{ yobj.thumbnail_url }}" alt="thumbnail" data-aos="zoom-out">
@@ -434,7 +476,7 @@
 </div>
 </div>
 </div>
-<h1 class="py-3"> VIDEOS </h1>
+<h1 class="heaD py-3"> VIDEOS </h1>
 <table class="table table-hover table-style">
   <thead id="thead1" data-aos="fade-left">
     <tr>
@@ -458,7 +500,7 @@
   {% endfor %}
   </tbody>
 </table>
-<h1 class="py-3"> AUDIO </h1>
+<h1 class="heaD py-3"> AUDIO </h1>
 <table class="table table-hover table-style" data-aos="fade-right">
   <thead id="thead2">
       <th scope="col">Type</th>
@@ -478,7 +520,7 @@
   {% endfor %}
   </tbody>
 </table>
-<h1 class="py-3">ONLY VIDEO (NO AUDIO)</h1>
+<h1 class="heaD py-3">ONLY VIDEO <span id="block500">(NO AUDIO)</span></h1>
 <table class="table table-hover table-style">
   <thead id="thead3" data-aos="fade-left">
     <tr>
