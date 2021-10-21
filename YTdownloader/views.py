@@ -14,11 +14,9 @@ def yt(request):
         try:
             video = YouTube(link)
             embedLink = link.replace("watch?v=", "embed/")
-            #print(video.streams.all)
             a=video.streams.filter(progressive=False, only_video=True)
             b=video.streams.filter(only_audio=True)
             c=video.streams.filter(progressive=True)
-            messages.add_message(request, messages.INFO, 'Hello world.')
             context={
                 'yobj' : video,
                 'embedLink' : embedLink,
